@@ -6,6 +6,7 @@ import {Row} from "react-bootstrap";
 import AlertBanner from "../../components/AlertBanner";
 import {pricePerItem} from "../../contants";
 import {useOrderDetails} from "../../contexts/OrderDetails";
+import {formatCurrency} from "../../utilities";
 
 export enum OPTION_TYPE {
     SCOOPS = "scoops",
@@ -43,7 +44,7 @@ const Options: FC<IOptions> = ({optionType}) => {
     return (
         <>
             <h2>{title}</h2>
-            <p>{pricePerItem[optionType]} each</p>
+            <p>{formatCurrency(pricePerItem[optionType])} each</p>
             <p>{title} total: {orderDetails.totals[optionType]}</p>
             <Row>{optionItems}</Row>
         </>
